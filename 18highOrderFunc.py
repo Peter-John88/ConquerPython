@@ -1,30 +1,31 @@
-# -*- coding:utf-8 -*-
+# -*- coding:utf-8  -*-
 
-print sorted([36, 5, 12, 9, 21])   #默认按升序排
+#变量可以指向函数
 
-def reversed_cmp(x,y):   #自定义倒序排列比较函数
-    if x>y:
-        return -1
-    if x<y:
-        return 1
-    return 0
+print abs(-10)
 
-print sorted([36, 5, 12, 9, 21], reversed_cmp)   #倒序排
-
-
-print sorted(['bob', 'about', 'Zoo', 'Credit'])
+f=abs
+print f
+print f(-10)
 
 
 
-   #忽略大小写，按照字母序排序
-def cmp_ignore_case(s1,s2):
-    u1=s1.upper()
-    u2=s2.upper()
-    if u1<u2:
-        return  -1
-    if u1>u2:
-        return 1
-    return 0
-print sorted( ['bob', 'about', 'Zoo', 'Credit'] ,cmp_ignore_case)
+#函数名也是变量
+#abs =10
+#abs(-10)     #TypeError: 'int' object is not callable
 
+
+
+
+#传入函数
+
+def add(x,y,f):
+    return f(x) + f(y)
+print add(-5,6,abs)
+
+
+
+    #
+    #把函数作为参数传入，这样的函数称为高阶函数，函数式编程就是指这种高度抽象的编程范式。
+    #
 
