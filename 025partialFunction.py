@@ -31,3 +31,4 @@ print int2('12345',base=10)   #base=2是默认参数，改成10也是ok的
     #max(*args)
 
 
+
