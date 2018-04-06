@@ -106,14 +106,58 @@ print now()
 
 
     #Excersise-1:请编写一个decorator，能在函数调用的前后打印出'begin call'和'end call'的日志。
-    #Excersise-2:再思考一下能否写出一个@log的decorator，使它都能支持如下两种装饰器：
+import  functools
+def log(func):
+    @functools.wraps(func)
+    def wrapper(*args,**kw):
+        print 'begin call %s' % func.__name__
+        r=func(*args,**kw)
+        print 'end call'
+        return r
+    return wrapper
+
 @log
-def f():
-    pass
+def now():
+    print '111'
+print now()
 
-@log('execute')
-def f():
-    pass
+    #Excersise-2:再思考一下能否写出一个@log的decorator，使它都能支持如下两种装饰器：
+#@log
+#def f():
+#    pass
 
+#@log('execute')
+#def f():
+#    pass
 
+    #Solution-2:
+import functools
+def log(*text):
+    def decorator(func):
+        @functools.wraps(func)       #记住在定义wrapper()的前面加上@functools.wraps(func)。
+        def wrapper(*args,**kw):
+            print '%s %s()' % (text,func.__name__)
+            return func(*args,**kw)
+        return wrapper
+    return decorator
+
+    @functools.wraps(func)
+    def wrapper(*args,**kw):
+        print 'call %s()' %(func.__name__)
+        return func(*args,**kw)
+
+    if callable(text):    # callable函数，直接用text is none判断不work
+        wrapper()
+    else:
+        decorator()
+
+@log('abc')
+def now():
+    print '2345'
+print now()
+
+@log()
+def now1():
+    print '2345'
+print now1()
 
