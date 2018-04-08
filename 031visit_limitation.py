@@ -90,5 +90,3 @@ print bart._Student__name
     #总的来说就是，Python本身没有任何机制阻止你干坏事，一切全靠自觉。
 
 
-
-
