@@ -139,6 +139,3 @@ def readImage(fp):
 
 
 
-
-
-
