@@ -126,4 +126,3 @@ print run_twice(Tortoise())
     #旧的方式定义Python类允许不从object类继承，但这种编程方式已经严重不推荐使用。任何时候，如果没有合适的类可以继承，就继承自object类。
 
 
-
