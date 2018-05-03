@@ -1,0 +1,67 @@
+name = raw_input('please enter your name')
+print 'hello,',name
+
+
+
+###########################Python2中input()、raw_input()和Python3中input()###########################
+
+听了ALEX的某节课，说input()和raw_input()函数在Python2中没有区别，现在来探讨一下Python2中的input()、raw_input()函数和Pyhont3中的input()函数：
+
+    Python2中的raw_input()函数，我们知道input()、raw_input()都是让用户输入的函数：
+
+    input()函数：
+
+    首先，我们先输入数字：
+
+>>> a = input("Please input your favorite number: ")
+Please input your favorite number: 5
+>>> a
+5
+
+    从中可以看出，当我们输入数字的时候，input()函数直接接受了5，并把这个用户输入的数字赋给了a，是以数字形式的。
+
+    接下来，我们以字符形式输入：
+>>> a = input("Please input your name: ")
+Please input your name: virgin
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<string>", line 1, in <module>
+NameError: name 'virgin' is not defined
+
+    从结果可以看出，提示我们输入的名字没有定义，报错了，说明不能以字符形式直接没有引号的情况下进行输入；
+
+    我们验证当我们以引号的方式输入字符串的时候，这个时候没有提示我们错误，由此可以看出，是没有问题的
+>>> a = input("Please input your name: ")
+Please input your name: "Virgin"
+>>> a
+'Virgin'
+
+    从中可以看出，其实Python2.x中，input()函数让我们明确我们输入的是数字格式还是字符格式，就是我们自己要知道我们想要的是什么，数字格式直接输入，字符格式必须加上单引号或者双引号，以确定我们输入的是字符串。
+
+    raw_input()函数：
+
+>>> a = raw_input("Please input your name: ")
+Please input your name: Virgin
+>>> a
+'Virgin'
+>>> a = raw_input("Please input your favorite number: ")
+Please input your favorite number: 10
+>>> a
+'10'
+    第一次我们输入的是字符串，而且没有加引号，正常把Virgin赋给了变量a；第二次输入的是数字10，但是输出的时候，a是字符格式的'10'，这个时候系统将我们输入的数字默认为了文本，所以可以看出，raw_input()函数无论用户输入什么，都默认为字符格式；而input()函数在Python2.x中，是要用户确定自己输入的是什么，用户要自己清楚明白自己操控的是什么。
+
+    Python3中的input()函数：
+
+    我们知道，在Python3中是没有raw_input()函数的，只有input()函数，因为Python3是就行了优化整合：
+
+    input()函数
+
+>>> a = input("Please input your favoriete number: ")
+Please input your favoriete number: 10
+>>> a
+'10'
+>>> b = input("Please input your name: ")
+Please input your name: Virgin
+>>> b
+'Virgin'
+    第一次我们输入的是数字，此时，input()是将数字10当作文本赋给了变量a，第二次，我们把文本赋给了变量b，输出结果还是文本，这与Python2中的raw_input()是一样的，所以，在Python3中是将Python2中的input()删除了，把raw_input()的名称改成了input()函数，这样在我们使用数字的时候就需要自己来进行转换了，所以我们在让用户输入数字的时候一定切忌要进行转换，如果我们要使用数字的化。
