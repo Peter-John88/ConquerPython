@@ -1,0 +1,18 @@
+Python中的random模块用于生成随机数。下面介绍一下random模块中最常用的几个函数。
+
+random.random
+random.random()用于生成一个0到1的随机符点数: 0 <= n < 1.0
+
+random.uniform
+random.uniform的函数原型为：random.uniform(a, b)，用于生成一个指定范围内的随机符点数，两个参数其中一个是上限，一个是下限。
+
+如果a > b，则生成的随机数n: b <= n <= a。如果 a <b， 则 a <= n <= b。
+`
+ 1 print random.uniform(10, 20)  
+ 2 print random.uniform(20, 10)  
+ 3 
+ 4 #---- 结果（不同机器上的结果不一样）  
+ 5 
+ 6 #18.7356606526  
+ 7 #12.5798298022 
+`
