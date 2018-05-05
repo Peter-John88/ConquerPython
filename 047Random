@@ -106,3 +106,32 @@ array([4, 1, 4, 3, 8, 2, 8, 5, 8, 9])
 >>>> np.random.permutation(10)
 array([1, 7, 4, 3, 0, 9, 2, 5, 8, 6])
 `
+
+
+
+
+三、seed种子
+
+seed() 方法改变随机数生成器的种子，可以在调用其他随机模块函数之前调用此函数。。
+
+以下展示了使用 seed(() 方法的实例：
+
+#!/usr/bin/python
+import random
+
+random.seed( 10 )
+print "Random number with seed 10 : ", random.random()
+
+# 生成同一个随机数
+random.seed( 10 )
+print "Random number with seed 10 : ", random.random()
+
+# 生成同一个随机数
+random.seed( 10 )
+print "Random number with seed 10 : ", random.random()
+
+以上实例运行后输出结果为：
+
+Random number with seed 10 :  0.57140259469
+Random number with seed 10 :  0.57140259469
+Random number with seed 10 :  0.57140259469
